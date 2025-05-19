@@ -15,7 +15,7 @@ Temporal Synchronization, Lip Readability, and Expressiveness.
 This repository includes **speech-mesh synchronized representation** and their usage as **a perceptual loss**. 
 We also provide **the evaluation codes for three metrics**—MTM, PLRS, and SLCC—to assess how well the generated 3D talking heads align with the three criteria.
 
-# Evaluation
+# Evaluation Metrics
 
 This directory provides three evaluation pipelines:
 
