@@ -1,4 +1,4 @@
-# Perceptually Accurate 3D Talking Head Generation: New Definitions, Speech-Mesh Representation, and Evaluation Metrics 
+# Perceptually Accurate 3D Talking Head Generation: New Definitions, Speech-Mesh Representation, and Evaluation Metrics [CVPR2025 Highlight]
 <h3>CVPR 2025 <mark>Highlight</mark></h3>
 
 
