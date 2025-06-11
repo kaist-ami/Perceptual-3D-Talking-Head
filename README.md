@@ -84,7 +84,7 @@ This script computes the **Perceptual Lip Readability Score** between given spee
 Download the VOCASET data from https://voca.is.tue.mpg.de/.
 
 ### Download model
-To run PLRS, you need to download model checkpoint for evaluation from [eval model](https://drive.google.com/file/d/1jk204wq6EEmYvksI5UaR2oWVlE1GAhEC/view?usp=sharing).
+To run PLRS, you need to download model checkpoint for evaluation from [model_eval](https://drive.google.com/file/d/1jk204wq6EEmYvksI5UaR2oWVlE1GAhEC/view?usp=sharing).
 
 After downloading the model, place them in `./checkpoints`.
 ```
