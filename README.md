@@ -15,6 +15,26 @@ Temporal Synchronization, Lip Readability, and Expressiveness.
 This repository includes **speech-mesh synchronized representation** and their usage as **a perceptual loss**. 
 We also provide **the evaluation codes for three metrics**—MTM, PLRS, and SLCC—to assess how well the generated 3D talking heads align with the three criteria.
 
+# 💪 TODO List 
+- [x] MTM code
+- [x] PLRS code
+- [x] SLCC code
+- [x] Model checkpoint for evaluation
+- [] Model checkpoint for perceptual loss
+- [] Perceptual loss code
+- [] Model training code
+
+# Getting started
+
+### Installation
+Create and activate a virtual environment to work in:
+```
+conda create --n perceptual
+conda activate perceptual
+pip install -r requirements.txt
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+```
+
 # Evaluation Metrics
 
 This directory provides three evaluation pipelines:
@@ -53,6 +73,31 @@ If your dataset is **25 FPS**:
 
 ```
 Δt (ms) = Δt (frames) × 40 ms
+```
+
+---
+## 🗣️ Perceptual Lip Readability Score (PLRS)
+
+This script computes the **Perceptual Lip Readability Score** between given speech and predicted vertex sequences. 
+
+### Download VOCASET
+Download the VOCASET data from https://voca.is.tue.mpg.de/.
+
+### Download models
+To run PLRS, you need to download model checkpoint for evaluation from [eval model](https://drive.google.com/file/d/1jk204wq6EEmYvksI5UaR2oWVlE1GAhEC/view?usp=sharing).
+
+After downloading the model, place them in `./checkpoints`.
+```
+./checkpoints/model_eval.pth
+```
+
+### Run
+For vocaset evaluation, pass the predicted vocaset mesh directory you want to evaluate as an argument to the script.
+You can set downloaded model checkpoint path ${MODEL_PATH} and vocaset wav path ${WAV_PATH} in the [code](https://github.com/kaist-ami/Perceptual-3D-Talking-Head/blob/main/evaluation/scripts/plrs.sh).
+
+```bash
+cd evaluation
+sh scripts/plrs.sh /path/to/predicted/vocaset/mesh/directory/
 ```
 
 ---
