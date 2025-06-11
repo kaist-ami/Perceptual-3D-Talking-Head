@@ -6,7 +6,7 @@ input_size_audio=64
 # path to pre-trained model
 MODEL_PATH="/path/to/eval/model/checkpoint/"
 EVAL_DATA_PATH=$1
-WAV_PATH='/node_data/chaeyeon/vocaset/wav'
+WAV_PATH='/path/to/vocaset/wav/'
 
 OMP_NUM_THREADS=1 CUDA_VISIBLE_DEVICES=0 torchrun --nproc_per_node=1 \
     --master_port 13307 \
