@@ -296,7 +296,7 @@ def get_sinusoid_encoding_table(n_position, d_hid):
     return torch.FloatTensor(sinusoid_table).unsqueeze(0)
 
 
-class SpeechMeshEvaluator(nn.Module):
+class SpeechMeshTransformer(nn.Module):
     """ Vision Transformer with support for patch or hybrid CNN input stage
     """
 
@@ -369,6 +369,7 @@ class SpeechMeshEvaluator(nn.Module):
             init_values=init_values,
             use_learnable_pos_emb=use_learnable_pos_emb
         )
+        self.loss_func = nn.CrossEntropyLoss()
 
     def _init_weights(self, m):
         if isinstance(m, nn.Linear):
@@ -406,7 +407,18 @@ class SpeechMeshEvaluator(nn.Module):
         cosine_similarity = self.forward_features(x, x_audio)  # (B, C)
         return cosine_similarity  # (B, C)
 
-
+    def compute_percp_loss(self, x, x_audio, save_feature=False):
+        vertex_feature,audio_feature = self.forward_features(x, x_audio)  # (B, C)
+        # cosine similarity as logits
+        contrastive_labels = torch.arange(vertex_feature.shape[0], dtype=torch.long).to(vertex_feature.device,
+                                                                                        non_blocking=True)
+        logits_per_video = vertex_feature @ audio_feature.t() / 0.07
+        logits_per_audio = logits_per_video.t()
+        loss = 0.5 * (
+                self.loss_func(logits_per_video, contrastive_labels) +
+                self.loss_func(logits_per_audio, contrastive_labels)
+        )
+        return loss  # (B, C)
 
 class MeshTransformerEncoder(nn.Module):
     """ Vision Transformer with support for patch or hybrid CNN input stage
@@ -576,8 +588,8 @@ class SpeechTransformerEncoder(nn.Module):
         return x, intermediate_features
 
 @register_model
-def plrs(pretrained=False, **kwargs):
-    model = SpeechMeshEvaluator(
+def speech_mesh_rep(pretrained=False, **kwargs):
+    model = SpeechMeshTransformer(
         vertex_size=5023 * 3,
         patch_size=5023 * 3,
         embed_dim=512,

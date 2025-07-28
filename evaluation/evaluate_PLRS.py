@@ -80,7 +80,7 @@ def get_args():
     parser = argparse.ArgumentParser('PLRS evaluation script for audio-driven 3D talking head generation',
                                      add_help=False)
     # Model parameters
-    parser.add_argument('--model', default='plrs', type=str, metavar='MODEL',
+    parser.add_argument('--model', default='speech_mesh_rep', type=str, metavar='MODEL',
                         help='Name of model to train')
     parser.add_argument('--input_size', default=224, type=int,
                         help='videos input size')

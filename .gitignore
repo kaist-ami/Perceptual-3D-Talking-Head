@@ -1,3 +1,6 @@
 src/__pycache__/
 src/model/__pycache__/
-checkpoints
+src/dataset/__pycache__/
+checkpoints/
+CodeTalker/
+FaceFormer/vocaset/
