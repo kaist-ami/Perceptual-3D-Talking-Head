@@ -35,6 +35,34 @@ pip install -r requirements.txt
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 ```
 
+# Perceptual Loss
+## Download model
+To train existing model with our perceptual loss, you need to download model checkpoint for perceptual loss from [model_loss](https://drive.google.com/file/d/1OydRVbTUChQIS-kngFgwTrlM6NkE8M2E/view?usp=sharing).
+
+After downloading the model, place them in `./checkpoints`.
+```
+./checkpoints/model_loss.pth
+```
+## FaceFormer with Perceptual Loss
+Follow the instructions in [FaceFormer](https://github.com/EvelynFan/FaceFormer) to set up the environment and prepare the VOCASET dataset.
+
+```bash
+cd FaceFormer
+```
+
+### Training on VOCASET
+You can pass downloaded guidance model checkpoint path ${GUIDANCE_MODEL_PATH} as an argument to the script.
+
+#### With Perceptual Loss
+```bash
+CUDA_VISIBLE_DEVICES=${DEVICE_NUM} python main.py --dataset vocaset --vertice_dim 15069 --feature_dim 64 --period 30 --train_subjects "FaceTalk_170728_03272_TA FaceTalk_170904_00128_TA FaceTalk_170725_00137_TA FaceTalk_170915_00223_TA FaceTalk_170811_03274_TA FaceTalk_170913_03279_TA FaceTalk_170904_03276_TA FaceTalk_170912_03278_TA" --val_subjects "FaceTalk_170811_03275_TA FaceTalk_170908_03277_TA" --test_subjects "FaceTalk_170809_00138_TA FaceTalk_170731_00024_TA" --save_path save_ours --model_type ours --guidance_model_path ${GUIDANCE_MODEL_PATH}
+```
+
+#### Without Perceptual Loss
+```bash
+CUDA_VISIBLE_DEVICES=${DEVICE_NUM} python main.py --dataset vocaset --vertice_dim 15069 --feature_dim 64 --period 30 --train_subjects "FaceTalk_170728_03272_TA FaceTalk_170904_00128_TA FaceTalk_170725_00137_TA FaceTalk_170915_00223_TA FaceTalk_170811_03274_TA FaceTalk_170913_03279_TA FaceTalk_170904_03276_TA FaceTalk_170912_03278_TA" --val_subjects "FaceTalk_170811_03275_TA FaceTalk_170908_03277_TA" --test_subjects "FaceTalk_170809_00138_TA FaceTalk_170731_00024_TA" --save_path save_original --model_type original --guidance_model_path ${GUIDANCE_MODEL_PATH}
+```
+
 # Evaluation Metrics
 
 This directory provides three evaluation pipelines:
