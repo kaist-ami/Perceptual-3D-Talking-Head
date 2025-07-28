@@ -221,14 +221,24 @@ Plots and summary tables are saved to `SLCC_results/`.
 ---
 
 
-## 📚 Citation
+# 📚 Citation
 If you found this code useful, please consider citing our paper.
 
 ```
-@article{chae2025perceptually,
+@inproceedings{chae2025perceptually,
   title={Perceptually Accurate 3D Talking Head Generation: New Definitions, Speech-Mesh Representation, and Evaluation Metrics},
   author={Chae-Yeon, Lee and Hyun-Bin, Oh and EunGi, Han and Sung-Bin, Kim and Nam, Suekyeong and Oh, Tae-Hyun},
-  journal={arXiv preprint arXiv:2503.20308},
+  booktitle={Proceedings of the Computer Vision and Pattern Recognition Conference},
+  pages={21065--21074},
   year={2025}
 }
 ```
+
+# 🙏 Acknowledgement
+We heavily borrow the code from the following projects. We sincerely appreciate the authors of these projects for making their work publicly available:
+- [VideoMAE](https://github.com/MCG-NJU/VideoMAE)
+- [AudioMAE](https://github.com/facebookresearch/AudioMAE)
+- [HiCMAE](https://github.com/sunlicai/HiCMAE)
+- [FaceFormer](https://github.com/EvelynFan/FaceFormer/tree/main)
+- [CodeTalker](https://github.com/Doubiiu/CodeTalker)
+- [SelfTalk](https://github.com/psyai-net/SelfTalk_release)
