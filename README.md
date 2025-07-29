@@ -20,8 +20,8 @@ We also provide **the evaluation codes for three metrics**—MTM, PLRS, and SLCC
 - [x] PLRS code
 - [x] SLCC code
 - [x] Model checkpoint for evaluation
-- [ ] Model checkpoint for perceptual loss
-- [ ] Perceptual loss code
+- [x] Model checkpoint for perceptual loss
+- [x] Perceptual loss code
 - [ ] Model training code
 
 # Getting started
