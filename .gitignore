@@ -4,4 +4,3 @@ src/dataset/__pycache__/
 checkpoints/
 CodeTalker/
 FaceFormer/vocaset/
-perceptual_loss/vocaset/
