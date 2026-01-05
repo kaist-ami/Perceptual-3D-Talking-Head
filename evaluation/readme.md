@@ -118,7 +118,7 @@ This produces a **lip-displacement CSV** for each clip.
 ### ④  SLCC Evaluation
 
 ```bash
-python extract_lip_intensity.py   # second pass computes SLCC
+python evaluate_SLCC.py   # second pass computes SLCC
 ```
 
 #### Results
