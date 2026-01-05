@@ -27,7 +27,7 @@ We also provide **the evaluation codes for three metrics**—MTM, PLRS, and SLCC
 ### Installation
 Create and activate a virtual environment to work in:
 ```
-conda create --n perceptual
+conda create -n perceptual
 conda activate perceptual
 pip install -r requirements.txt
 pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
